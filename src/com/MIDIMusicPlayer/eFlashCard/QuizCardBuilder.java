@@ -21,7 +21,7 @@ public class QuizCardBuilder {
     public void go() {
         frame = new JFrame();
         JPanel mainPanel = new JPanel();
-        Font bigFont = new Font("sanserrif", Font.BOLD, 24);
+        Font bigFont = new Font("sanserif", Font.BOLD, 24);
         question = new JTextArea(6, 20);
         question.setLineWrap(true);
         question.setWrapStyleWord(true);
@@ -45,11 +45,11 @@ public class QuizCardBuilder {
         cardList = new ArrayList<>();
 
         JLabel qLabel = new JLabel("Question:");
-        JLabel alabel = new JLabel("Answer:");
+        JLabel aLabel = new JLabel("Answer:");
 
         mainPanel.add(qLabel);
         mainPanel.add(qScroller);
-        mainPanel.add(alabel);
+        mainPanel.add(aLabel);
         mainPanel.add(aScroller);
         mainPanel.add(nextButton);
         nextButton.addActionListener(new NextCardListener());
