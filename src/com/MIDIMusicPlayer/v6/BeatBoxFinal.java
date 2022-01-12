@@ -86,6 +86,14 @@ public class BeatBoxFinal {
         sendIt.addActionListener(new MySendListener());
         buttonBox.add(sendIt);
 
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem clearMenuItem = new JMenuItem("Clear");
+        clearMenuItem.addActionListener(new ClearMenuListener());
+        fileMenu.add(clearMenuItem);
+        menuBar.add(fileMenu);
+        theFrame.setJMenuBar(menuBar);
+
         userMessage = new JTextField();
         buttonBox.add(userMessage);
 
@@ -118,6 +126,7 @@ public class BeatBoxFinal {
             mainPanel.add(c);
         }
 
+        theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theFrame.setBounds(50, 50, 300, 300);
         theFrame.pack();
         theFrame.setVisible(true);
@@ -253,6 +262,16 @@ public class BeatBoxFinal {
         public void actionPerformed(ActionEvent a) {
             if (mySequence != null) {
                 sequence = mySequence;
+            }
+        }
+
+    }
+    private class ClearMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            sequencer.stop();
+            for (int i=0;i<256;i++){
+                JCheckBox jc = checkBoxList.get(i);
+                jc.setSelected(false);
             }
         }
     }
